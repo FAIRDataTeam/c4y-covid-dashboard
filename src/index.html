@@ -107,10 +107,15 @@
 
                 for (let i = 0; i < values.length; i++) {
                     let sum = 0
+                    let count = 0
+
                     for (let j = i - 6; j <= i; j++) {
-                        sum += j < 0 ? values[0] : values[j]
+                        if (j >= 0) {
+                            sum += values[j]
+                            count++
+                        }
                     }
-                    averageData.push(Math.round(sum / 7))
+                    averageData.push(Math.round(sum / count))
                 }
 
                 const ctx = document.getElementById('chart')
